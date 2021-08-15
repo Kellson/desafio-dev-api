@@ -3,6 +3,7 @@ import { Connection } from 'typeorm';
 import { connectDatabase } from '../db';
 import { Operacao } from '../db/models';
 import { GetOperacoes, PostOperacoes } from '../services';
+import validarOperacoes from '../utils/validarOperacoes';
 
 const router: Router = Router();
 
@@ -14,6 +15,12 @@ router.post('/', async (req: Request, res: Response) => {
     let operacoes: Operacao[];
     if (body && body.operacoes) {
       //Validar array de operações, verificando inclusive se é array
+      const operacoesValidadas = validarOperacoes(body.operacoes);
+      if (!operacoesValidadas)
+        return res.status(400).json({
+          err: true,
+          msg: 'Dados inválidos',
+        });
       const listaOperacao: Operacao[] = body.operacoes;
       operacoes = await new PostOperacoes().post(connection, listaOperacao);
     } else {
