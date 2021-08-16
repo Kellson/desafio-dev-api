@@ -30,7 +30,7 @@ router.post('/', async (req: Request, res: Response) => {
       err: false,
       msg: 'Sucesso',
       insert: !!body.operacoes,
-      data: operacoes,
+      operacoes,
     });
   } catch (err) {
     console.log('ERROR: ', err);
