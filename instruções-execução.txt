@@ -1,10 +1,10 @@
 1 - Executar script SQL, no banco de dados local MYSQL
 2 - Colocar as credencias do seu banco de dados no .env da API (que, no momento, está com as minhas)
 3 - Executar API
-ENDPOINT DISPONÍVEL: 
+ENDPOINT DISPONÍVEL:
 	URL: http://localhost:3000/operacao
 	MÉTODO: POST
-	CORPO EXEMPLO (FORMATO JSON): 
+	CORPO EXEMPLO (FORMATO JSON):
 	{
 	"operacoes": [
 		{
@@ -23,3 +23,5 @@ ENDPOINT DISPONÍVEL:
 	OBJETIVO:
 		*Se o cliente mandar um array de operacoes, no campo operacoes, em formato JSON, devidamente formatados, o mesmo será cadastrado na base. Após isso, uma query da tabela operacao, contendo todas as operações cadastradas, é retornada para o cliente.
 		*Se o cliente não mandar esse atributo (operacoes) na request, então somente a query de todas as operações será executada e retornada para o cliente.
+
+4 - Referente ao teste unitário, basta executar o comando yarn test.
