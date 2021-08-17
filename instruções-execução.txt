@@ -1,0 +1,25 @@
+1 - Executar script SQL, no banco de dados local MYSQL
+2 - Colocar as credencias do seu banco de dados no .env da API (que, no momento, está com as minhas)
+3 - Executar API
+ENDPOINT DISPONÍVEL: 
+	URL: http://localhost:3000/operacao
+	MÉTODO: POST
+	CORPO EXEMPLO (FORMATO JSON): 
+	{
+	"operacoes": [
+		{
+			"id": 1,
+			"tipo": 3,
+			"data": "20190301",
+			"valor": "142.00",
+			"cpf": "09620676017",
+			"cartao": "4753****3153",
+			"hora": "153453",
+			"donoLoja": "JOÃO MACEDO   ",
+			"nomeLoja": "BAR DO JOÃO       "
+		}
+	]
+	}
+	OBJETIVO:
+		*Se o cliente mandar um array de operacoes, no campo operacoes, em formato JSON, devidamente formatados, o mesmo será cadastrado na base. Após isso, uma query da tabela operacao, contendo todas as operações cadastradas, é retornada para o cliente.
+		*Se o cliente não mandar esse atributo (operacoes) na request, então somente a query de todas as operações será executada e retornada para o cliente.
